@@ -62,7 +62,7 @@
 		<pitch-deg>-75</pitch-deg>
 	</offsets>
 	<overlay>
-		<texture>/Aircraft/VIP/Common/cdu/boeing_brown.png</texture>
+		<texture>Aircraft/VIP/Common/cdu/boeing_brown.png</texture>
 	</overlay>
 </model>
 
