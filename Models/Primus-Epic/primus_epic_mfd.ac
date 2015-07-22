@@ -349,7 +349,7 @@ name "Airplane"
 loc 2.14656e-05 -0.000395575 3.03835e-05
 data 9
 Plane.023
-texture "/home/narendranm/.files/install/fgfs/fgdata/Aircraft/-family/Models/Instruments/MFD/symbols.png"
+texture "symbols.png"
 crease 30.000000
 numvert 4
 0.000254989 -0.066213 0.00637501
@@ -391,7 +391,7 @@ name "HSI"
 loc 2.14656e-05 -0.000395575 3.03984e-05
 data 12
 Cylinder.003
-texture "/home/narendranm/.files/install/fgfs/fgdata/Aircraft/-family/Models/Instruments/MFD/hsiarc.png"
+texture "hsiarc.png"
 crease 30.000000
 numvert 36
 8.49962e-05 -0.0501 9.98378e-07
@@ -650,7 +650,7 @@ name "HdgAP"
 loc 2.14656e-05 -0.000395575 3.03984e-05
 data 9
 Plane.360
-texture "/home/narendranm/.files/install/fgfs/fgdata/Aircraft/-family/Models/Instruments/MFD/symbols.png"
+texture "symbols.png"
 crease 30.000000
 numvert 4
 0.000254989 0.065197 -0.00382499
@@ -691,7 +691,7 @@ name "MP1"
 loc 2.14656e-05 -0.000395575 3.03984e-05
 data 9
 Plane.028
-texture "/home/narendranm/.files/install/fgfs/fgdata/Aircraft/-family/Models/Instruments/MFD/symbols.png"
+texture "symbols.png"
 crease 30.000000
 numvert 4
 0.000169992 -0.06268 0.00425
@@ -712,7 +712,7 @@ name "MP2"
 loc 2.14656e-05 -0.000395575 3.03984e-05
 data 9
 Plane.031
-texture "/home/narendranm/.files/install/fgfs/fgdata/Aircraft/-family/Models/Instruments/MFD/symbols.png"
+texture "symbols.png"
 crease 30.000000
 numvert 4
 0.000169992 -0.06268 0.00425
@@ -733,7 +733,7 @@ name "MP3"
 loc 2.14656e-05 -0.000395575 3.03984e-05
 data 9
 Plane.335
-texture "/home/narendranm/.files/install/fgfs/fgdata/Aircraft/-family/Models/Instruments/MFD/symbols.png"
+texture "symbols.png"
 crease 30.000000
 numvert 4
 0.000169992 -0.06268 0.00425
@@ -754,7 +754,7 @@ name "MP4"
 loc 2.14656e-05 -0.000395575 3.03984e-05
 data 9
 Plane.336
-texture "/home/narendranm/.files/install/fgfs/fgdata/Aircraft/-family/Models/Instruments/MFD/symbols.png"
+texture "symbols.png"
 crease 30.000000
 numvert 4
 0.000169992 -0.06268 0.00425
@@ -775,7 +775,7 @@ name "MP5"
 loc 2.14656e-05 -0.000395575 3.03984e-05
 data 9
 Plane.337
-texture "/home/narendranm/.files/install/fgfs/fgdata/Aircraft/-family/Models/Instruments/MFD/symbols.png"
+texture "symbols.png"
 crease 30.000000
 numvert 4
 0.000169992 -0.06268 0.00425
@@ -796,7 +796,7 @@ name "MP6"
 loc 2.14656e-05 -0.000395575 3.03984e-05
 data 9
 Plane.338
-texture "/home/narendranm/.files/install/fgfs/fgdata/Aircraft/-family/Models/Instruments/MFD/symbols.png"
+texture "symbols.png"
 crease 30.000000
 numvert 4
 0.000169992 -0.06268 0.00425
@@ -817,7 +817,7 @@ name "VOR1"
 loc 2.14656e-05 -0.000395575 3.03984e-05
 data 9
 Plane.357
-texture "/home/narendranm/.files/install/fgfs/fgdata/Aircraft/-family/Models/Instruments/MFD/symbols.png"
+texture "symbols.png"
 crease 30.000000
 numvert 4
 0.000169992 -0.06625 0.00849999
@@ -838,7 +838,7 @@ name "VOR2"
 loc 2.14656e-05 -0.000395575 3.03984e-05
 data 9
 Plane.356
-texture "/home/narendranm/.files/install/fgfs/fgdata/Aircraft/-family/Models/Instruments/MFD/symbols.png"
+texture "symbols.png"
 crease 30.000000
 numvert 4
 0.000169992 -0.06625 0.00849999
@@ -859,7 +859,7 @@ name "WP"
 loc 2.14656e-05 -0.000395575 3.03984e-05
 data 9
 Plane.358
-texture "/home/narendranm/.files/install/fgfs/fgdata/Aircraft/-family/Models/Instruments/MFD/symbols.png"
+texture "symbols.png"
 crease 30.000000
 numvert 4
 0.000169992 -0.06268 0.00403699
@@ -880,7 +880,7 @@ name "WPCrs"
 loc 2.14656e-05 -0.000395575 3.03984e-05
 data 9
 Plane.359
-texture "/home/narendranm/.files/install/fgfs/fgdata/Aircraft/-family/Models/Instruments/MFD/symbols.png"
+texture "symbols.png"
 crease 30.000000
 numvert 4
 0.000169992 -0.059238 -0.000567004
@@ -2374,7 +2374,7 @@ name "Airplane.map"
 loc 0.00108765 0.0432119 -0.000478819
 data 9
 Plane.023
-texture "/home/narendranm/.files/install/fgfs/fgdata/Aircraft/-family/Models/Instruments/MFD/symbols.png"
+texture "symbols.png"
 crease 30.000000
 numvert 4
 0 -0.066213 -0.00741096
