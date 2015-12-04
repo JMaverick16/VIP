@@ -2,7 +2,7 @@
 
 <!-- 
 	This is a derivative of the ERJ-190 which is part of the E-Jet-Family by 
-	Narendran Muraleedharan. The original had some glitches and ommission and the
+	Narendran Muraleedharan. The original had some glitches and ommissions and the
 	Lineage 1000 has an extended range which meant adding a new tank with all the 
 	bells and whistles.
 	
@@ -14,12 +14,14 @@
     		
  -->
 
-<PropertyList>
+<PropertyList include="Aircraft/JPack/Interface.xml">
 
 	<sim>
+
 		<description>Embraer Lineage 1000 (190-100 EBJ)</description>
 		<author>Peter Brendt, Narendran Muraleedharan</author>
 		
+		<aircraft-version>V02.00.00</aircraft-version>
 		<status>pre-beta</status>
 
 		<rating>
@@ -30,16 +32,22 @@
 		</rating>
 
 		<flight-model>jsb</flight-model>
-		<aero>Lineage1000</aero>
+		<aero>Aero/Lineage1000</aero>
 		<engine>GE_CF34-10E7-B</engine>
 
+		<!-- Splash screen while loading -->
+		<startup>
+			<splash-texture>Aircraft/VIP/Splashes/Lineage1000.png</splash-texture>
+		</startup>
+
+		<!-- Settings for model -->
 		<model>
-			<path>Aircraft/VIP/XMLs/Lineage1000.xml</path>
+			<path>Aircraft/VIP/Models/Lineage1000/Lineage1000.xml</path>
 			<livery>
 				<file type="string"/>
 			</livery>
 
-			<Lineage1000>
+			<!-- Lineage1000>
 				<heading-bug-pfd-deg type="double">0</heading-bug-pfd-deg>
 				<heading-bug-deg type="double">0</heading-bug-deg>
 				<nav1-bug-deg type="double">0</nav1-bug-deg>
@@ -47,22 +55,56 @@
 				<wp-bug-deg type="double">0</wp-bug-deg>
 				<ias-bug-kt-norm type="double">0</ias-bug-kt-norm>
 				<mach-bug-kt-norm type="double">0</mach-bug-kt-norm>
-			</Lineage1000>
+			</Lineage1000 -->
 
+			<!-- JPack: push forces for Voodoomaster Pushback -->
 			<pushback>
 				<kp type="double">300</kp>
 				<ki type="double">0</ki>
 				<kd type="double">0</kd>
 				<position-norm type="double">0</position-norm>
+				<enabled type="bool">false</enabled>
 			</pushback>
 
-			<door n="0">
+			<!-- door n="0">
 				<position-x-m>-11.443</position-x-m>
 				<position-y-m>-1.489</position-y-m>
 				<position-z-m> 0.034</position-z-m>
 				<jetway-hood-deg>8</jetway-hood-deg>
-            		</door>
+            		</door -->
 		</model>
+
+		<!-- Subsection for submodels if submodels exist -->
+		<!-- submodels>
+			<serviceable type="bool">1</serviceable>
+			<path>Aircraft/JPack/Voodoomaster/Services/Military/MilitarySub.xml</path>
+		</submodels -->  
+
+		<!-- basic startup settings for sim -->
+		<freeze>
+			<fuel>false</fuel>	<!-- false is default, only here for quick change while testing -->
+		</freeze>
+
+		<gui>
+			<dialogs>
+				<autopilot>
+					<kts-select type="bool">true</kts-select>
+					<mach-select tpye="bool">false</mach-select>
+				</autopilot>
+			</dialogs>
+		</gui>
+
+		<fuel-fraction>0.8</fuel-fraction>	<!-- does nothing under JSB, here for a leter fuel system expansion -->
+
+		<chase-distance-m>-100</chase-distance-m>
+
+		<sound>
+			<path>Aircraft/VIP/Sounds/Lineage1000/Lineage1000-sound.xml</path>
+		</sound>
+
+		<autostart>
+			<started>0</started>
+		</autostart>
 
 		<flaps>
 			<setting>0.00</setting>
@@ -72,57 +114,57 @@
 			<setting>0.40</setting>
 		</flaps>
 
-		<startup>
-			<splash-texture>Aircraft/VIP/Lineage1000.png</splash-texture>
-		</startup>
-
-		<systems>
-			<autopilot>
-				<name>Autopilot</name>
-				<path>Aircraft/VIP/Systems/Lineage1000-autopilot.xml</path>
-			</autopilot>
-			<autopilot>
-				<name>Autopilot helpers</name>
-				<path>Aircraft/VIP/Common/generic-autopilot-helper.xml</path>
-			</autopilot>
-			<autopilot>
-				<name>Autobrake</name>
-				<path>Aircraft/VIP/Systems/Lineage1000-autobrake.xml</path>
-			</autopilot>
-			<autopilot>
-				<name>Spoilers</name>
-				<path>Aircraft/VIP/Systems/Lineage1000-spoilers.xml</path>
-			</autopilot>
-		</systems>
-
-		<chase-distance-m>-100</chase-distance-m>
-
-		<sound>
-			<path>Aircraft/VIP/Lineage1000-sound.xml</path>
-		</sound>
+		<virtual-cockpit archive="y">true</virtual-cockpit>
 
 		<instrumentation>
-			<path>Aircraft/VIP/Systems/Lineage1000-instrumentation.xml</path>
+			<path>Aircraft/VIP/Systems/Lineage1000/Lineage1000-instrumentation.xml</path>
 		</instrumentation>
 
-		<alarms>
-			<master-caution type="bool">false</master-caution>
-		</alarms>
+		<!-- MP section if exists -->
+		<multiplay>
+			<generic>
+            			<int n="0" alias="/systems/electrical/outputs/strobe"/>
+            			<int n="1" alias="/systems/electrical/outputs/beacon"/>
+            			<int n="2" alias="/systems/electrical/outputs/taxi-lights"/>
+            			<int n="3" alias="/systems/electrical/outputs/logo-lights"/>
+            			<int n="4" alias="/systems/electrical/outputs/landing-light[0]"/>
+            			<int n="5" alias="/systems/electrical/outputs/landing-light[1]"/>
+            			<int n="6" alias="/systems/electrical/outputs/landing-light[2]"/>
+            			<int n="7" alias="/systems/electrical/outputs/nav-lights"/>
 
+            			<float n="0" alias="/gear/gear[0]/compression-m"/>
+            			<float n="1" alias="/gear/gear[1]/compression-m"/>
+            			<float n="2" alias="/gear/gear[2]/compression-m"/>
+            			<float n="3" alias="/gear/gear[1]/compression-m"/>
+            			<float n="4" alias="/gear/gear[2]/compression-m"/>
+            			<float n="5" alias="/surface-positions/speedbrake-norm"/>
+            			<float n="6" alias="/surface-positions/reverser-norm"/>
+            			<string  alias="/sim/multiplay/callsign"/>
+        		</generic>
+    		</multiplay>
+		
+		<!-- #### HUD section if exists -->
+		<hud>
+			<enable3d>false</enable3d>
+		</hud>
+		  
+		<!-- Blackout rendering due to G-forces, relative tolerant -->
 		<rendering>
 			<redout>
 				<enabled type="bool">true</enabled>
 				<parameters>
-				  <blackout-complete-g type="double">7</blackout-complete-g>
-				  <blackout-onset-g type="double">4.5</blackout-onset-g>
-				  <redout-complete-g type="double">-4.5</redout-complete-g>
-				  <redout-onset-g type="double">-2</redout-onset-g>
+					<blackout-complete-g type="double">9.1</blackout-complete-g>
+					<blackout-onset-g type="double">7.5</blackout-onset-g>
+					<redout-complete-g type="double">-6.5</redout-complete-g>
+					<redout-onset-g type="double">-4</redout-onset-g>
 				</parameters>
 			</redout>
 			<camera-group>
 				<znear type="double">0.1</znear>
 			</camera-group>
 		</rendering>
+
+		<!-- All the views (crew stations + 1 more to allow moving around + extras liek Tail Camera) -->
         
 		<view>
 			<name>Pilot View</name>
@@ -135,6 +177,7 @@
 				<default-field-of-view-deg type="double">70.0</default-field-of-view-deg>
 			</config>
 		</view>
+
 		<view n="100">
 			<name>Gear View</name>
 			<type>lookfrom</type>
@@ -184,7 +227,6 @@
    			</dynamic>
   		</view>
 
-
   		<view n="103">
         		<name>Copilot View</name>
         		<type>lookfrom</type>
@@ -210,6 +252,48 @@
         		</config>
   		</view>
 
+		<airport>
+			<runways>
+				<start-offset-m>20</start-offset-m>
+			</runways>
+		</airport>
+
+		<help>
+			<title>Lineage 1000</title>
+			<key>
+				<name>Delete</name>
+				<desc>toggle thrust reversers</desc>
+			</key>
+			<key>
+				<name>Ctrl-z</name>
+				<desc>toggle master autopilot switch</desc>
+			</key>
+			<key>
+				<name>Ctrl-y</name>
+				<desc>toggle autothrottle switch</desc>
+			</key>
+			<key>
+				<name>Ctrl-b</name>
+				<desc>cycle speedbrake lever setting</desc>
+			</key>
+			<key>
+				<name>Ctrl-k</name>
+				<desc>arm/disarm ground spoilers</desc>
+			</key>
+			<key>
+				<name>w</name>
+				<desc>walk forward toward view direction</desc>
+			</key>
+			<key>
+				<name>s</name>
+				<desc>walk backward from view direction</desc>
+			</key>
+			<key>
+				<name>5</name>
+				<desc>sets rudder, ailerons and trims to neutral but not pitch and elevators</desc>
+			</key>
+		</help>
+
 		<menubar>
 			<default>
 				<menu n="3">
@@ -219,9 +303,13 @@
 						<binding>
 							<command>nasal</command>
 							<script>
+								var autopilot = gui.Dialog.new("sim/gui/dialogs/autopilot/dialog", "Aircraft/JPack/Voodoomaster/Dialogs/autopilot9.xml");
+								autopilot.open();
+							</script>
+							<!-- script>
 							 var autopilot = gui.Dialog.new("sim/gui/dialogs/autopilot/dialog", "Aircraft/VIP/Systems/Lineage1000-autopilot-dlg.xml");
 							 autopilot.open();
-							</script>
+							</script -->
 						</binding>
 					</item>
 				</menu>
@@ -329,224 +417,38 @@
 			</default>
 		</menubar>
 
-		<help>
-			<title>Lineage 1000</title>
-			<key>
-				<name>Delete</name>
-				<desc>toggle thrust reversers</desc>
-			</key>
-			<key>
-				<name>Ctrl-z</name>
-				<desc>toggle master autopilot switch</desc>
-			</key>
-			<key>
-				<name>Ctrl-y</name>
-				<desc>toggle autothrottle switch</desc>
-			</key>
-			<key>
-				<name>Ctrl-b</name>
-				<desc>cycle speedbrake lever setting</desc>
-			</key>
-			<key>
-				<name>Ctrl-k</name>
-				<desc>arm/disarm ground spoilers</desc>
-			</key>
-			<key>
-				<name>w</name>
-				<desc>walk forward toward view direction</desc>
-			</key>
-			<key>
-				<name>s</name>
-				<desc>walk backward from view direction</desc>
-			</key>
-			<key>
-				<name>5</name>
-				<desc>sets rudder, ailerons and trims to neutral but not pitch and elevators</desc>
-			</key>
-		</help>
-
-		<multiplay>
-			<generic>
-            			<int n="0" alias="/systems/electrical/outputs/strobe"/>
-            			<int n="1" alias="/systems/electrical/outputs/beacon"/>
-            			<int n="2" alias="/systems/electrical/outputs/taxi-lights"/>
-            			<int n="3" alias="/systems/electrical/outputs/logo-lights"/>
-            			<int n="4" alias="/systems/electrical/outputs/landing-light[0]"/>
-            			<int n="5" alias="/systems/electrical/outputs/landing-light[1]"/>
-            			<int n="6" alias="/systems/electrical/outputs/landing-light[2]"/>
-            			<int n="7" alias="/systems/electrical/outputs/nav-lights"/>
-
-            			<float n="0" alias="/gear/gear[0]/compression-m"/>
-            			<float n="1" alias="/gear/gear[1]/compression-m"/>
-            			<float n="2" alias="/gear/gear[2]/compression-m"/>
-            			<float n="3" alias="/gear/gear[1]/compression-m"/>
-            			<float n="4" alias="/gear/gear[2]/compression-m"/>
-            			<float n="5" alias="/surface-positions/speedbrake-norm"/>
-            			<float n="6" alias="/surface-positions/reverser-norm"/>
-            			<string  alias="/sim/multiplay/callsign"/>
-        		</generic>
-    		</multiplay>
-	</sim>
-
-	<consumables>
-		<fuel>
-			<tank n="0">
-				<name>Left Wing Fuel Tank</name>
-			</tank>
-			<tank n="1">
-				<name>Central Fuel Tank</name>
-			</tank>
-			<tank n="2">
-				<name>Belly Tank</name>
-			</tank>
-			<tank n="3">
-				<name>Right Wing Fuel Tank</name>
-			</tank>
-			<tank n="4">
-				<name>Tail Trimmer Fuel Tank</name>
-			</tank>
-		</fuel>
-	</consumables>
-
-	<payload>
-		<weight n="0">
-			<name>Cockpit Crew</name>
-			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[0]" />
-			<min-lb type="double">120</min-lb>
-			<max-lb type="double">400</max-lb>
-		</weight>
-		<weight n="1">
-			<name>Cabin/Passengers</name>
-			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[1]" />
-			<min-lb type="double">0</min-lb>
-			<max-lb type="double">12960</max-lb>
-		</weight>
-	</payload>
-
-	<controls>
-		<anti-ice>
-			<wiper type="int">0</wiper>
-			<wiper type="int">0</wiper>
-		</anti-ice>
-		<autoflight>
-			<autopilot>
-				<engage type="bool">false</engage>
+		<!-- Systems -->
+		<systems>
+			<!-- autopilot>
+				<name>Autopilot</name>
+				<path>Aircraft/VIP/Systems/Lineage1000-autopilot.xml</path>
 			</autopilot>
-			<flight-director>
-				<engage type="bool">false</engage>
-			</flight-director>
-			<yaw-damper>
-				<engage type="bool">false</engage>
-			</yaw-damper>
-			<yaw-damper>
-				<engage type="bool">false</engage>
-			</yaw-damper>
-			<autothrottle-engage type="bool">false</autothrottle-engage>
-			<basic-roll-mode type="int">0</basic-roll-mode>
-			<basic-roll-target-heading-deg type="double">0</basic-roll-target-heading-deg>
-			<basic-roll-target-roll-deg type="double">0</basic-roll-target-roll-deg>
-			<bank-angle-select type="float">30</bank-angle-select>
-			<disengage-pos-norm type="int">0</disengage-pos-norm>
-			<heading-select type="double">0</heading-select>
-			<lateral-mode type="int">-1</lateral-mode>
-			<mach-select type="double">0</mach-select>
-			<nav-mode type="int">0</nav-mode>
-			<pitch-select type="double">0</pitch-select>
-			<speed-mode type="int">0</speed-mode>
-			<speed-select type="double">200</speed-select>
+			<autopilot>
+				<name>Autopilot helpers</name>
+				<path>Aircraft/VIP/Common/generic-autopilot-helper.xml</path>
+			</autopilot>
+			<autopilot>
+				<name>Autobrake</name>
+				<path>Aircraft/VIP/Systems/Lineage1000-autobrake.xml</path>
+			</autopilot>
+			<autopilot>
+				<name>Spoilers</name>
+				<path>Aircraft/VIP/Systems/Lineage1000-spoilers.xml</path>
+			</autopilot -->
+			<path>Aircraft/767/Systems/Lineage1000/Lineage1000.xml</path>
+			<electrical>
+				<path>Aircraft/Generic/generic-electrical.xml</path>
+			</electrical>
+			<autopilot>
+				<path>Aircraft/JPack/Voodoomaster/Systems/SYS9_0_autopilot.xml</path>
+			</autopilot>
+		</systems>
 
-			<altitude-select type="double">10000</altitude-select>
-			<!-- vertical-mode type="int">-1</vertical-mode -->
-			<vertical_mode type="int">-1</vertical_mode>
-			<vertical-speed-select type="double">1800</vertical-speed-select>
+		<alarms>
+			<master-caution type="bool">false</master-caution>
+		</alarms>
 
-			<vs-engage type='bool'>false</vs-engage>
-			<flch-engage type='bool'>false</flch-engage>
-			<vnav-engage type='bool'>false</vnav-engage>
-			<fpa-engage type='bool'>true</fpa-engage>
-			<app-engage type='bool'>false</app-engage>
-			<alt-engage type='bool'>false</alt-engage>
-		</autoflight>
-		<APU>
-			<fire-switch type="bool">false</fire-switch>
-			<master-switch type="bool">false</master-switch>
-			<starter type="bool">false</starter>
-		</APU>
-		<electric>
-			<avionics-switch type="bool">true</avionics-switch>
-		</electric>
-		<engines>
-			<engine-start-switch type="int">1</engine-start-switch>
-			<engine n="0">
-				<cutoff type="bool">true</cutoff>
-				<cutoff-switch type="bool">true</cutoff-switch>
-				<starter type="bool">false</starter>
-				<starter-switch type="bool">false</starter-switch>
-			</engine>
-			<engine n="1">
-				<cutoff type="bool">true</cutoff>
-				<cutoff-switch type="bool">true</cutoff-switch>
-				<starter type="bool">false</starter>
-				<starter-switch type="bool">false</starter-switch>
-			</engine>
-		</engines>
-		<flight>
-			<ground-spoilers-armed type="bool">false</ground-spoilers-armed>
-			<speedbrake-lever type="double">0</speedbrake-lever>
-		</flight>
-		<gear>
-			<brake-parking type="bool">true</brake-parking>
-			<enable-tiller type="bool">true</enable-tiller>
-			<tiller-steer-deg type="float">0</tiller-steer-deg>
-		</gear>
-		<lighting>
-			<beacon type="bool">false</beacon>
-			<interior type="double">0</interior>
-			<cockpit type="bool">false</cockpit>
-			<cones type="bool">true</cones>
-			<dome-norm type="double">0</dome-norm>
-			<landing-lights n="0" type="bool">false</landing-lights>
-			<landing-lights n="1" type="bool">false</landing-lights>
-			<landing-lights n="2" type="bool">false</landing-lights>
-			<nav-lights-switch type="int">0</nav-lights-switch>
-			<overhead-panel-norm type="double">0.8</overhead-panel-norm>
-			<main-panel-pedestal-norm type="double">0.8</main-panel-pedestal-norm>
-			<strobe type="bool">false</strobe>
-		</lighting>
-		<switches>
-			<no-smoking-sign type="bool">true</no-smoking-sign>
-			<seatbelt-sign type="bool">false</seatbelt-sign>
-		</switches>
-	</controls>
-
-	<autopilot>
-		<autobrake>
-			<config>
-				<idle-throttle type="double">0.1</idle-throttle>
-				<pilot-input type="double">0</pilot-input>
-			</config>
-			<step type="int">0</step>
-		</autobrake>
-
-		<settings>
-			<autothrottle type="bool">false</autothrottle>
-			<engaged type="bool">false</engaged>
-			<altitude>altitude-hold</altitude>
-			<heading>dg-heading-hold</heading>
-			<heading-mode type="int">0</heading-mode>
-			<speed-mode type="int">0</speed-mode>
-			<heading-bug-deg type="double">0</heading-bug-deg>
-			<target-speed-kt type="double">250</target-speed-kt>
-			<target-speed-mach type="double">0</target-speed-mach>
-			<target-altitude-ft type="double">33000</target-altitude-ft>
-			<vertical-speed-fpm type="double">2000</vertical-speed-fpm>
-			<altitude-setting-ft type="double">10000</altitude-setting-ft>
-		</settings>
-		<flight-director-serviceable type="bool">true</flight-director-serviceable>
-		<autoflight-serviceable type="bool">true</autoflight-serviceable>
-		<autothrottle-serviceable type="bool">true</autothrottle-serviceable>
-		<yaw-damper-serviceable type="bool">true</yaw-damper-serviceable>
-	</autopilot>
+	</sim>
 	
 	<engines>
 		<apu>
@@ -587,6 +489,362 @@
 			<caster-angle-deg-damped type="double">0</caster-angle-deg-damped>
 		</gear>
 	</gear>
+
+	<consumables>
+
+		<fuel>
+
+			<tank n="0">
+				<name>Left Wing Fuel Tank</name>
+			</tank>
+
+			<tank n="1">
+				<name>Central Fuel Tank</name>
+			</tank>
+
+			<tank n="2">
+				<name>Belly Tank</name>
+			</tank>
+
+			<tank n="3">
+				<name>Right Wing Fuel Tank</name>
+			</tank>
+
+			<tank n="4">
+				<name>Tail Trimmer Fuel Tank</name>
+			</tank>
+
+		</fuel>
+
+	</consumables>
+
+	<payload>
+
+		<weight n="0">
+			<name>Cockpit Crew</name>
+			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[0]" />
+			<min-lb type="double">120</min-lb>
+			<max-lb type="double">400</max-lb>
+		</weight>
+
+		<weight n="1">
+			<name>Cabin/Passengers</name>
+			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[1]" />
+			<min-lb type="double">0</min-lb>
+			<max-lb type="double">12960</max-lb>
+		</weight>
+
+	</payload>
+
+	<controls>
+
+		<switches>
+			<no-smoking-sign type="bool">true</no-smoking-sign>
+			<seatbelt-sign type="bool">false</seatbelt-sign>
+		</switches>
+
+		<electric>
+			<avionics-switch type="bool">true</avionics-switch>
+		</electric>
+
+		<APU>
+			<fire-switch type="bool">false</fire-switch>
+			<master-switch type="bool">false</master-switch>
+			<starter type="bool">false</starter>
+		</APU>
+
+		<engines>
+			<engine-start-switch type="int">1</engine-start-switch>
+
+			<engine n="0">
+				<cutoff type="bool">true</cutoff>
+				<cutoff-switch type="bool">true</cutoff-switch>
+				<starter type="bool">false</starter>
+				<starter-switch type="bool">false</starter-switch>
+				<rpm>0</rpm>
+				<running>false</running>
+			</engine>
+
+			<engine n="1">
+				<cutoff type="bool">true</cutoff>
+				<cutoff-switch type="bool">true</cutoff-switch>
+				<starter type="bool">false</starter>
+				<starter-switch type="bool">false</starter-switch>
+				<rpm>0</rpm>
+				<running>false</running>
+			</engine>
+
+		</engines>
+
+		<anti-ice>
+			<wiper type="int">0</wiper>
+			<wiper type="int">0</wiper>
+			<wing type="int">0</wing>
+			<eng0 type="int">0</eng0>
+			<eng1 type="int">0</eng1>
+		</anti-ice>
+
+		<!-- wing, old standard since 767>
+			<anti-ice type="string">controls/ice/wings/auto</anti-ice>
+		</wing>
+		<eng1>
+			<anti-ice type="string">controls/ice/eng1/auto</anti-ice>
+		</eng1>
+		<eng2>
+			<anti-ice type="string">controls/ice/eng2/auto</anti-ice>
+		</eng2 -->
+
+		<gear>
+			<brake-parking type="bool">true</brake-parking>
+			<enable-tiller type="bool">true</enable-tiller>
+			<tiller-steer-deg type="float">0</tiller-steer-deg>
+		</gear>
+
+		<lighting>
+			<beacon type="bool">false</beacon>
+			<strobe type="bool">false</strobe>
+			<landing-lights n="0" type="bool">false</landing-lights>
+			<landing-lights n="1" type="bool">false</landing-lights>
+			<landing-lights n="2" type="bool">false</landing-lights>
+			<!-- #### check out what is the difference between nav_lights-switch and nav-lights -->
+			<nav-lights-switch type="int">0</nav-lights-switch>
+			<nav-lights>1</nav-lights>
+
+			<interior type="double">0</interior>
+			<cockpit type="bool">false</cockpit>
+			<cones type="bool">true</cones>
+			<dome-norm type="double">0</dome-norm>
+			<overhead-panel-norm type="double">0.8</overhead-panel-norm>
+			<main-panel-pedestal-norm type="double">0.8</main-panel-pedestal-norm>
+		</lighting>
+
+		<!-- autoflight>
+
+			<autopilot>
+				<engage type="bool">false</engage>
+			</autopilot>
+
+			<flight-director>
+				<engage type="bool">false</engage>
+			</flight-director>
+
+			<yaw-damper>
+				<engage type="bool">false</engage>
+			</yaw-damper>
+
+			<autothrottle-engage type="bool">false</autothrottle-engage>
+
+			<basic-roll-mode type="int">0</basic-roll-mode>
+			<basic-roll-target-heading-deg type="double">0</basic-roll-target-heading-deg>
+			<basic-roll-target-roll-deg type="double">0</basic-roll-target-roll-deg>
+			<bank-angle-select type="float">30</bank-angle-select>
+			<disengage-pos-norm type="int">0</disengage-pos-norm>
+			<heading-select type="double">0</heading-select>
+			<lateral-mode type="int">-1</lateral-mode>
+			<mach-select type="double">0</mach-select>
+			<nav-mode type="int">0</nav-mode>
+			<pitch-select type="double">0</pitch-select>
+			<speed-mode type="int">0</speed-mode>
+			<speed-select type="double">200</speed-select>
+
+			<altitude-select type="double">10000</altitude-select>
+			<vertical_mode type="int">-1</vertical_mode>
+			<vertical-speed-select type="double">1800</vertical-speed-select>
+
+			<vs-engage type='bool'>false</vs-engage>
+			<flch-engage type='bool'>false</flch-engage>
+			<vnav-engage type='bool'>false</vnav-engage>
+			<fpa-engage type='bool'>true</fpa-engage>
+			<app-engage type='bool'>false</app-engage>
+			<alt-engage type='bool'>false</alt-engage>
+		</autoflight -->
+
+		<!-- flight>
+			<ground-spoilers-armed type="bool">false</ground-spoilers-armed>
+			<speedbrake-lever type="double">0</speedbrake-lever>
+		</flight -->
+
+	</controls>
+
+	<!-- Systems parallel to sim -->
+	<systems>
+		<path>Aircraft/VIP/Systems/Lineage1000/Lineage1000.xml</path>
+		<electrical>
+			<path>Aircraft/Generic/generic-electrical.xml</path>
+		</electrical>
+		<autopilot>
+			<path>Aircraft/JPack/Voodoomaster/Systems/SYS9_0_autopilot.xml</path>
+		</autopilot>
+	</systems>
+
+	<!-- #### ai submodels if exist -->
+
+	<input>
+		<keyboard>
+
+			<key n="1">
+				<name>Ctrl-A</name>
+				<desc>AP off</desc>
+				<binding>
+					<command>property-assign</command>
+					<property>/autopilot/locks/altitude</property>
+					<value></value>
+				</binding>
+				<binding>
+					<command>property-assign</command>
+					<property>/autopilot/locks/heading</property>
+					<value></value>
+				</binding>
+				<binding>
+					<command>property-assign</command>
+					<property>/autopilot/locks/speed</property>
+					<value></value>
+				</binding>
+			</key>
+
+			<key n="2">
+				<name>Ctrl-b</name>
+				<desc>Cycle speedbrake setting</desc>
+				<binding>
+					<command>property-cycle</command>
+					<property>controls/flight/speedbrake-lever</property>
+					<value>0</value>
+					<value>0.5</value>
+					<value>1</value>
+				</binding>
+			</key>
+
+			<key n="9">
+				<name>Tab</name>
+				<desc>Cycle autobrake setting</desc>
+				<binding>
+					<command>property-cycle</command>
+					<property>autopilot/autobrake/step</property>
+					<value type="int">0</value> <!-- OFF -->
+					<value type="int">1</value> <!-- LOW -->
+					<value type="int">2</value> <!-- MED -->
+					<value type="int">3</value> <!-- MAX -->
+				</binding>
+			</key>
+
+			<key n="11">
+				<name>Ctrl-k</name>
+				<desc>Arm/disarm ground spoilers</desc>
+				<binding>
+					<command>property-toggle</command>
+					<property>controls/flight/ground-spoilers-armed</property>
+				</binding>
+			</key>
+
+			<key n="15">
+				<name>Ctrl-O</name>
+				<desc>Toggle TO/GA lock</desc>
+				<binding>
+					<command>nasal</command>
+					<script>
+					 	var node = props.globals.getNode("/autopilot/settings/speed", 1);
+					 	if (node.getValue() == "speed-to-ga") {
+					  		node.setValue("");
+					  	} else {
+					  		node.setValue("speed-to-ga");
+					  	}
+					</script>
+				</binding>
+			</key>
+
+			<key n="25">
+				<name>Ctrl-Y</name>
+				<desc>Toggle autothrottle switch</desc>
+				<binding>
+					<command>property-toggle</command>
+					<property>controls/autoflight/autothrottle-engage</property>
+				</binding>
+			</key>
+
+			<key n="26">
+				<name>Ctrl-Z</name>
+				<desc>Toggle master autopilot switch</desc>
+				<binding>
+					<command>property-toggle</command>
+					<property>controls/autoflight/autopilot/engage</property>
+					<!-- command>property-toggle</command>
+					<property>autopilot/settings/engaged</property -->
+				</binding>
+			</key>
+
+			<!-- specialized key "5" for keyboard-flier -->
+			<key n="53">
+  				<name>5</name>
+				<desc>Center aileron, elevator, and rudder</desc>
+  				<binding>
+   					<command>nasal</command>
+   					<script>
+					    	setprop("/controls/flight/aileron", 0);
+						setprop("/controls/flight/rudder", 0);
+						setprop("/controls/flight/aileron-trim", 0);
+						setprop("/controls/flight/rudder-trim", 0);
+					</script>
+  				</binding>
+ 			</key>
+
+			<key n="66">
+				<name>B</name>
+				<desc>Toggle parking brake on or off</desc>
+				<binding>
+					<command>nasal</command>
+					<script>
+						controls.applyParkingBrake(1);
+					</script>
+				</binding>
+				<mod-up>
+					<binding>
+						<command>nasal</command>
+						<script>
+							controls.applyParkingBrake(0);
+							setprop("controls/gear/brake-left", 0);
+							setprop("controls/gear/brake-right", 0);
+						</script>
+					</binding>
+				</mod-up>
+			</key>
+
+			<key n="115">
+				<name>s</name>
+				<desc>Walk backward from view</desc>
+				<repeatable type="bool">true</repeatable>
+				<binding>
+					<command>nasal</command>
+					<script>
+						walk.walk_about(-0.1);
+					</script>
+				</binding>
+			</key>
+
+			<key n="119">
+				<name>w</name>
+				<desc>Walk forward toward view</desc>
+				<repeatable type="bool">true</repeatable>
+				<binding>
+					<command>nasal</command>
+					<script>
+						walk.walk_about(0.1);
+					</script>
+				</binding>
+			</key>
+
+			<key n="127">
+				<name>Delete</name>
+				<desc>Toggle thrust reversers</desc>
+				<binding>
+					<command>nasal</command>
+					<script>
+						reversethrust.togglereverser();
+					</script>
+				</binding>
+			</key>
+		
+		</keyboard>
+	</input>
 
 	<instrumentation>
 		<cdu>
@@ -649,247 +907,128 @@
 		</mk-viii>
 	</instrumentation>
 
-	<input>
-		<keyboard>
-			<key n="127">
-				<name>Delete</name>
-				<desc>Toggle thrust reversers</desc>
-				<binding>
-					<command>nasal</command>
-					<script>
-						reversethrust.togglereverser();
-					</script>
-				</binding>
-			</key>
-			<key n="119">
-				<name>w</name>
-				<desc>Walk forward toward view</desc>
-				<repeatable type="bool">true</repeatable>
-				<binding>
-					<command>nasal</command>
-					<script>
-						walk.walk_about(0.1);
-					</script>
-				</binding>
-			</key>
-			<key n="2">
-				<name>Ctrl-b</name>
-				<desc>Cycle speedbrake setting</desc>
-				<binding>
-					<command>property-cycle</command>
-					<property>controls/flight/speedbrake-lever</property>
-					<value>0</value>
-					<value>0.5</value>
-					<value>1</value>
-				</binding>
-			</key>
-			<key n="11">
-				<name>Ctrl-k</name>
-				<desc>Arm/disarm ground spoilers</desc>
-				<binding>
-					<command>property-toggle</command>
-					<property>controls/flight/ground-spoilers-armed</property>
-				</binding>
-			</key>
-			<key n="9">
-				<name>Tab</name>
-				<desc>Cycle autobrake setting</desc>
-				<binding>
-					<command>property-cycle</command>
-					<property>autopilot/autobrake/step</property>
-					<value type="int">0</value> <!-- OFF -->
-					<value type="int">1</value> <!-- LOW -->
-					<value type="int">2</value> <!-- MED -->
-					<value type="int">3</value> <!-- MAX -->
-				</binding>
-			</key>
-			<key n="119">
-				<name>w</name>
-				<desc>Run forward toward view</desc>
-				<repeatable type="bool">true</repeatable>
-				<binding>
-					<command>nasal</command>
-					<script>
-						walk.walk_about(0.25);
-					</script>
-				</binding>
-			</key>
-			<key n="115">
-				<name>s</name>
-				<desc>Walk backward from view</desc>
-				<repeatable type="bool">true</repeatable>
-				<binding>
-					<command>nasal</command>
-					<script>
-						walk.walk_about(-0.1);
-					</script>
-				</binding>
-			</key>
+	<!-- multiplay>
+		<generic>
+			<int n="10" alias="voodoomaster/radar[0]/antenna-r"/>
+		</generic>
+	</multiplay -->
+	
+	<limits>
+		<!-- #### needs rework, just copied form 767-2C -->
+		<vne>380</vne>
+ 
+		<max-positive-g>4.4</max-positive-g>
+		<max-negative-g>-1.76</max-negative-g>
+ 
+		<max-flap-extension-speed n="0">
+			<flaps>0.167</flaps>
+			<speed>255</speed>
+		</max-flap-extension-speed>
+		<max-flap-extension-speed n="1">
+			<flaps>0.333</flaps>
+			<speed>235</speed>
+		</max-flap-extension-speed>
+		<max-flap-extension-speed n="2">
+			<flaps>0.667</flaps>
+			<speed>215</speed>
+		</max-flap-extension-speed>
+		<max-flap-extension-speed n="3">
+			<flaps>0.833</flaps>
+			<speed>205</speed>
+		</max-flap-extension-speed>
+		<max-flap-extension-speed n="4">
+			<flaps>1.000</flaps>
+			<speed>195</speed>
+		</max-flap-extension-speed>
+		<max-flap-extension-speed n="5">
+			<flaps>1.000</flaps>
+			<speed>185</speed>
+		</max-flap-extension-speed>
+		<max-flap-extension-speed n="6">
+			<flaps>1.000</flaps>
+			<speed>175</speed>
+		</max-flap-extension-speed>
+		<max-flap-extension-speed n="7">
+			<flaps>1.000</flaps>
+			<speed>165</speed>
+		</max-flap-extension-speed>
+		<max-flap-extension-speed n="8">
+			<flaps>1.000</flaps>
+			<speed>160</speed>
+		</max-flap-extension-speed>
 
-			<!-- Custom autopilot hotkeys -->
-			<key n="15">
-				<name>Ctrl-O</name>
-				<desc>Toggle TO/GA lock</desc>
-				<binding>
-					<command>nasal</command>
-					<script>
-					 	var node = props.globals.getNode("/autopilot/settings/speed", 1);
-					 	if (node.getValue() == "speed-to-ga") {
-					  		node.setValue("");
-					  	} else {
-					  		node.setValue("speed-to-ga");
-					  	}
-					</script>
-				</binding>
-			</key>
-			<key n="26">
-				<name>Ctrl-Z</name>
-				<desc>Toggle master autopilot switch</desc>
-				<binding>
-					<command>property-toggle</command>
-					<property>controls/autoflight/autopilot/engage</property>
-					<!-- command>property-toggle</command>
-					<property>autopilot/settings/engaged</property -->
-				</binding>
-			</key>
+		<max-gear-extension-speed>220</max-gear-extension-speed>
 
-			<key n="25">
-				<name>Ctrl-Y</name>
-				<desc>Toggle autothrottle switch</desc>
-				<binding>
-					<command>property-toggle</command>
-					<property>controls/autoflight/autothrottle-engage</property>
-				</binding>
-			</key>
+		<mass-and-balance>
+			<maximum-ramp-mass-lbs>128000</maximum-ramp-mass-lbs>
+			<maximum-takeoff-mass-lbs>121245</maximum-takeoff-mass-lbs>
+			<maximum-landing-mass-lbs>95000</maximum-landing-mass-lbs>
+			<maximum-zero-fuel-mass-lbs>61910</maximum-zero-fuel-mass-lbs>
+		</mass-and-balance>
 
-			<!-- Default autopilot hotkeys -->
-			<key n="1">
-				<name>Ctrl-A</name>
-				<desc>toggle autopilot altitude lock</desc>
-				<binding>
-					<command>property-assign</command>
-					<property>autopilot/settings/altitude</property>
-					<value>altitude-hold</value>
-				</binding>
-			</key>
-			<key n="7">
-				<name>Ctrl-G</name>
-				<desc>Toggle autopilot glide slope lock</desc>
-				<binding>
-					<command>nasal</command>
-					<script>
-						var hdgNode = props.globals.getNode("/autopilot/settings/heading", 1);
-						var altNode = props.globals.getNode("/autopilot/settings/altitude", 1);
-					 	if (altNode.getValue() == "gs1-hold") {
-					  		hdgNode.setValue("dg-heading-hold");
-					  		altNode.setValue("altitude-hold");
-					  	} else {
-					  		hdgNode.setValue("nav1-hold");
-					  		altNode.setValue("gs1-hold");
-					  	}
-					</script>
-				</binding>
-			</key>
-			<key n="8">
-				<name>Ctrl-H</name>
-				<desc>Toggle autopilot heading lock</desc>
-				<binding>
-					<command>property-assign</command>
-					<property>autopilot/settings/heading</property>
-					<value>dg-heading-hold</value>
-				</binding>
-			</key>
-			<key n="14">
-				<name>Ctrl-N</name>
-				<desc>Toggle autopilot nav1 lock</desc>
-				<binding>
-					<command>nasal</command>
-					<script>
-						var node = props.globals.getNode("/autopilot/settings/heading", 1);
-					 	if (node.getValue() == "nav1-hold") {
-					  		node.setValue("dg-heading-hold");
-					  	} else {
-					  		node.setValue("nav1-hold");
-					  	}
-					</script>
-				</binding>
-			</key>
-			<key n="262">
-				<name>F6</name>
-				<desc>Toggle Autopilot Heading Mode</desc>
-				<binding>
-					<command>nasal</command>
-					<script>
-						var node = props.globals.getNode("/autopilot/settings/heading", 1);
-					 	if (node.getValue() == "true-heading-hold") {
-					  		node.setValue("dg-heading-hold");
-					  	} else {
-					  		node.setValue("true-heading-hold");
-					  	}
-					</script>
-				</binding>
-			</key>
-			<key n="267">
-				<name>F11</name>
-				<desc>Open autopilot dialog</desc>
-				<binding>
-					<command>nasal</command>
-					<script>
-						var autopilot = gui.Dialog.new("sim/gui/dialogs/autopilot/dialog", "Aircraft/VIP/Systems/Lineage1000-autopilot-dlg.xml");
-						autopilot.open();
-					</script>
-				</binding>
-			</key>
+	</limits>
 
-			<!-- specialized key "5" for keyboard-flier -->
-			<key n="53">
-  				<name>5</name>
-				<desc>Center aileron, elevator, and rudder</desc>
-  				<binding>
-   					<command>nasal</command>
-   					<script>
-					    	setprop("/controls/flight/aileron", 0);
-						setprop("/controls/flight/rudder", 0);
-						setprop("/controls/flight/aileron-trim", 0);
-						setprop("/controls/flight/rudder-trim", 0);
-					</script>
-  				</binding>
- 			</key>
+	<autopilot>
+		<!-- autobrake>
+			<config>
+				<idle-throttle type="double">0.1</idle-throttle>
+				<pilot-input type="double">0</pilot-input>
+			</config>
+			<step type="int">0</step>
+		</autobrake -->
 
-			<key n="66">
-				<name>B</name>
-				<desc>Toggle parking brake on or off</desc>
-				<binding>
-					<command>nasal</command>
-					<script>
-						controls.applyParkingBrake(1);
-					</script>
-				</binding>
-				<mod-up>
-					<binding>
-						<command>nasal</command>
-						<script>
-							controls.applyParkingBrake(0);
-							setprop("controls/gear/brake-left", 0);
-							setprop("controls/gear/brake-right", 0);
-						</script>
-					</binding>
-				</mod-up>
-			</key>
-		
-		</keyboard>
-	</input>
+		<settings>
+			<kts-mach-select type="string">kts</kts-mach-select>
+			<max-pitch type="float"> 6.0</max-pitch>
+			<min-pitch type="float">-4.0</min-pitch>
+			<bank-angle-limit-deg type="int">35</bank-angle-limit-deg>
+			<heading-bug-deg type="double">0</heading-bug-deg>
+			<target-speed-kt type="double">250</target-speed-kt>
+			<target-speed-mach type="double">0</target-speed-mach>
+			<target-altitude-ft type="double">33000</target-altitude-ft>
+			<vertical-speed-fpm type="double">2000</vertical-speed-fpm>
+			<altitude-setting-ft type="double">10000</altitude-setting-ft>
+			<!-- autothrottle type="bool">false</autothrottle>
+			<engaged type="bool">false</engaged>
+			<altitude>altitude-hold</altitude>
+			<heading>dg-heading-hold</heading>
+			<heading-mode type="int">0</heading-mode>
+			<speed-mode type="int">0</speed-mode -->
+		</settings>
+
+		<internal>
+			<target-pitch-deg type="float">0.00</target-pitch-deg>
+			<max-pitch type="float"> 6.0</max-pitch>
+			<min-pitch type="float">-4.0</min-pitch>
+		</internal>
+
+		<!-- flight-director-serviceable type="bool">true</flight-director-serviceable>
+		<autoflight-serviceable type="bool">true</autoflight-serviceable>
+		<autothrottle-serviceable type="bool">true</autothrottle-serviceable>
+		<yaw-damper-serviceable type="bool">true</yaw-damper-serviceable -->
+	</autopilot>
+
+	<!-- Voodoomaster plane specific initializations -->
+	<voodoomaster>
+		<steering-wheel type="int">0</steering-wheel>
+		<steering-type type="string">TriCycle</steering-type>	<!-- Alternativ: Taildragger-lock or Taildragger-steer -->
+		<model-direction>0.00</model-direction>
+		<pushback>
+			<activated type="bool">false</activated>
+		</pushback>
+		<engines>2</engines>
+	</voodoomaster>
 
 	<nasal>
-		<systems>
+		<voodoomaster>
+			<file>Aircraft/JPack/Voodoomaster/Nasal/Autostart/SYS9_0_Autostart_Jet.nas</file>
+			<!-- file>Aircraft/VIP/Nasal/Lineage1000/Lineage1000.nas</file -->
+		</voodoomaster>
+		<lineage1000>
 			<file>Aircraft/VIP/Nasal/Lineage1000/systemsLineage1000.nas</file>
-		</systems>
-		<electrical>
 			<file>Aircraft/VIP/Nasal/Lineage1000/electricalLineage1000.nas</file>
-		</electrical>
-		<v-speeds>
 			<file>Aircraft/VIP/Nasal/Lineage1000/v-speedsLineage1000.nas</file>
-		</v-speeds>
+		</lineage1000>
 		<reversethrust>
 			<file>Aircraft/VIP/Nasal/Lineage1000/reversethrustLineage1000.nas</file>
 		</reversethrust>
@@ -908,9 +1047,6 @@
 		<dialogs>
 			<file>Aircraft/VIP/Nasal/Lineage1000/radioLineage1000.nas</file>
 		</dialogs>
-		<otto>
-			<file>Aircraft/VIP/Nasal/Lineage1000/ottoLineage1000.nas</file>
-		</otto>
 	</nasal>
 
 </PropertyList>

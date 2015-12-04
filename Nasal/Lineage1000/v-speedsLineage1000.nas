@@ -6,12 +6,12 @@ V2 = "";
 # The actual function
 var vspeeds = func {
 
-       # Create/populate variables at each function cycle
-       # Retrieve total aircraft weight and convert to kg.
+	# Create/populate variables at each function cycle
+	# Retrieve total aircraft weight and convert to kg.
 	WT = getprop("/fdm/jsbsim/inertia/weight-lbs")*0.00045359237;
 	flaps = getprop("/instrumentation/fmc/to-flap");
 
-       # Calculate V-speeds with flaps 10
+	# Calculate V-speeds with flaps 10
 	if (flaps == 10) {
 		V1 = (0.3*(WT-80))+125;
 		VR = (0.3*(WT-80))+140;
