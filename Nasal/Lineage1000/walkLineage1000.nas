@@ -1,4 +1,5 @@
 # view nodes and offsets --------------------------------------------
+
 var zNoseNode = props.globals.getNode("sim/view/config/y-offset-m", 1);
 var xViewNode = props.globals.getNode("sim/current-view/z-offset-m", 1);
 var yViewNode = props.globals.getNode("sim/current-view/x-offset-m", 1);
