@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <PropertyList>
 
 	<!-- Definition of 3d model -->
-	<path>../Models/747-8vip/747-8vip.ac</path>
+	<path>747-8vip.ac</path>
 
 	<nasal>
 		<load>
@@ -191,7 +192,7 @@
 
 	<model>
 		<name>Pushback</name>
-		<path>../Models/747-8vip/Service/Pushback/pushback.xml</path>
+		<path>Service/Pushback/pushback.xml</path>
 		<offsets>
 			<x-m>-26.1012</x-m>
 			<y-m>  0.000</y-m>
@@ -202,16 +203,16 @@
 	<!-- Fuel Trucks -->
 	<model>
 		<name>FuelTrucks</name>
-		<path>../Models/747-8vip/Service/Fueltender/fueltender.xml</path>
+		<path>Service/Fueltender/fueltender.xml</path>
 	</model>
 
 	<model>
-		<path>../Models/747-8vip/747-8vip_gear.xml</path> 
+		<path>747-8vip_gear.xml</path> 
 	</model>
 
 	<model>
 		<name>Flightdeck</name>
-		<path>../Models/747-8vip/Cockpit/cockpit.xml</path> 
+		<path>Cockpit/cockpit.xml</path> 
 		<offsets>
 			<x-m>-3.8699</x-m>
 			<y-m>  0.000</y-m>
@@ -233,7 +234,7 @@
 	<!-- LANDING LIGHTS WINGS -->
 
 	<model>
-		<path>../Models/747-8vip/Lights/landinglights/landing_light_R.xml</path>
+		<path>Lights/landinglights/landing_light_R.xml</path>
 		<name>LandingLight.Outbd.Left</name>
 		<offsets>
 			<x-m>-8.6858</x-m>
@@ -243,7 +244,7 @@
 	</model>	
 
 	<model>
-		<path>../Models/747-8vip/Lights/landinglights/landing_light_R.xml</path>
+		<path>Lights/landinglights/landing_light_R.xml</path>
 		<name>LandingLight.Outbd.Left</name>
 		<offsets>
 			<x-m>-8.2158</x-m>
@@ -253,7 +254,7 @@
 	</model>
 
 	<model>
-		<path>../Models/747-8vip/Lights/landinglights/landing_light_L.xml</path>
+		<path>Lights/landinglights/landing_light_L.xml</path>
 		<name>LandingLight.Outbd.Left</name>
 		<offsets>
 			<x-m>-8.6858</x-m>
@@ -263,7 +264,7 @@
 	</model>
 
 	<model>
-		<path>../Models/747-8vip/Lights/landinglights/landing_light_L.xml</path>
+		<path>Lights/landinglights/landing_light_L.xml</path>
 		<name>LandingLight.Outbd.Left</name>
 		<offsets>
 			<x-m>-8.2158</x-m>
@@ -275,7 +276,7 @@
 	<!-- LANDING LIGHTS NOSE -->
 
 	<model>
-		<path>../Models/747-8vip/Lights/landinglights/noselanding.xml</path>
+		<path>Lights/landinglights/noselanding.xml</path>
 		<name>LandingLight.Nose</name>
 		<offsets>
 			<x-m>-27.0022</x-m>
@@ -286,10 +287,10 @@
 
 
 
-<!-- ANTI-COLLISION LIGHTS -->
+	<!-- ANTI-COLLISION LIGHTS -->
 
 	<model>
-		<path>../Models/747-8vip/Lights/beacon/beacon.xml</path>
+		<path>Lights/beacon/beacon.xml</path>
 		<name>Beacon.Upper</name>
 		<offsets>
 			<x-m>-20.314</x-m>
@@ -299,7 +300,7 @@
 	</model>
 
 	<model>
-		<path>../Models/747-8vip/Lights/beacon/beacon.xml</path>
+		<path>Lights/beacon/beacon.xml</path>
 		<name>Beacon.Lower</name>
 		<offsets>
 			<x-m>-1.96917</x-m>
@@ -309,7 +310,7 @@
 	</model>
 
 	<model>
-		<path>../Models/747-8vip/Lights/bluelight/blueflash.xml</path>
+		<path>Lights/bluelight/blueflash.xml</path>
 		<name>Light.Tail</name>
 		<offsets>
 			<x-m>40.4202</x-m>
@@ -319,7 +320,7 @@
 	</model>
 
 	<model>
-		<path>../Models/747-8vip/Lights/strobewhite/strobe.xml</path>
+		<path>Lights/strobewhite/strobe.xml</path>
 		<name>StrobeLight.Tail</name>
 		<offsets>
 			<x-m>40.4402</x-m>
@@ -332,7 +333,7 @@
 	<!-- TAIL LOGO LIGHTS -->
 
 	<model>
-		<path>../Models/747-8vip/Lights/strobewhite/logo-lights.xml</path>
+		<path>Lights/strobewhite/logo-lights.xml</path>
 		<name>light.logo1</name>
 		<offsets>
 			<x-m>38.44</x-m>
@@ -342,7 +343,7 @@
 	</model>
 
 	<model>
-		<path>../Models/747-8vip/Lights/strobewhite/logo-lights.xml</path>
+		<path>Lights/strobewhite/logo-lights.xml</path>
 		<name>light.logo2</name>
 		<offsets>
 			<x-m>38.44</x-m>
@@ -363,7 +364,7 @@
 	<!-- Wing Lights -->
 
 	<model>
-		<path>../Models/747-8vip/Lights/winglights.xml</path>
+		<path>Lights/winglights.xml</path>
 		<name>Wing.LightsL</name>
 		<offsets>
 			<x-m>-10.0</x-m>
@@ -373,7 +374,7 @@
 	</model>
 
 	<model>
-		<path>../Models/747-8vip/Lights/winglights.xml</path>
+		<path>Lights/winglights.xml</path>
 		<name>Wing.LightsR</name>
 		<offsets>
 			<x-m>-10.0</x-m>
@@ -403,7 +404,7 @@
 	<!-- NAVIGATION LIGHTS -->
 
 	<model>
-		<path>../Models/747-8vip/Lights/rednav/redflash.xml</path>
+		<path>Lights/rednav/redflash.xml</path>
 		<name>NavLight.Left</name>
 		<offsets>
 			<x-m>17.133</x-m>
@@ -413,7 +414,7 @@
 	</model>
 
 	<model>
-		<path>../Models/747-8vip/Lights/rednav/rednav.xml</path>
+		<path>Lights/rednav/rednav.xml</path>
 		<name>NavLight.Left2</name>
 		<offsets>
 			<x-m>17.133</x-m>
@@ -423,7 +424,7 @@
 	</model>
 
 	<model>
-		<path>../Models/747-8vip/Lights/strobewhite/strobe.xml</path>
+		<path>Lights/strobewhite/strobe.xml</path>
 		<name>Strobe.Left</name>
 		<offsets>
 			<x-m>17.4827</x-m>
@@ -433,7 +434,7 @@
 	</model>
 
 	<model>
-		<path>../Models/747-8vip/Lights/greennav/greenflash.xml</path>
+		<path>Lights/greennav/greenflash.xml</path>
 		<name>NavLight.Right</name>
 		<offsets>
 			<x-m>17.133</x-m>
@@ -443,7 +444,7 @@
 	</model>
 
 	<model>
-		<path>../Models/747-8vip/Lights/greennav/greennav.xml</path>
+		<path>Lights/greennav/greennav.xml</path>
 		<name>NavLight.Right2</name>
 		<offsets>
 			<x-m>17.133</x-m>
@@ -453,7 +454,7 @@
 	</model>	
 
 	<model>
-		<path>../Models/747-8vip/Lights/strobewhite/strobe.xml</path>
+		<path>Lights/strobewhite/strobe.xml</path>
 		<name>Strobe.Right</name>
 		<offsets>
 			<x-m>17.4827</x-m>
@@ -466,7 +467,7 @@
 
 	<model>
 		<name>Luminosidade</name>
-		<path>../Models/747-8vip/Lights/luminosidade/luminosidade.xml</path>
+		<path>Lights/luminosidade/luminosidade.xml</path>
 		<offsets>
 			<x-m>-5.10</x-m>
 			<y-m>0.0</y-m>
@@ -477,7 +478,7 @@
 
     	<model>
       		<name>shadowOSG</name>
-      		<path>../Models/747-8vip/Shadow/shadow.xml</path>
+      		<path>Shadow/shadow.xml</path>
 	   	<offsets>
 	     		<x-m> 0.0</x-m>
 	     		<y-m> 0.0</y-m>
@@ -1816,7 +1817,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>aileron_L</object-name>
-		<condition>
+		<!--condition>
 			<or>
             			<less-than>
             	    			<property>velocities/mach</property>
@@ -1827,8 +1828,8 @@
             	    			<value>278</value>
             			</less-than>
 			</or>
-        	</condition>
-		<property>controls/flight/aileron-pos</property>
+        	</condition -->
+		<property>controls/flight/aileron</property>
 		<factor> 30</factor>
 		<axis>
 			<x1-m> 16.4032</x1-m>
@@ -1843,7 +1844,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>aileron_R</object-name>
-		<condition>
+		<!-- condition>
 			<or>
             			<less-than>
             	    			<property>velocities/mach</property>
@@ -1854,8 +1855,8 @@
             	    			<value>278</value>
             			</less-than>
 			</or>
-        	</condition>
-		<property>controls/flight/aileron-pos</property>
+        	</condition -->
+		<property>controls/flight/aileron</property>
 		<factor>30</factor>
 		<axis>
 			<x1-m> 16.4032</x1-m>
@@ -2273,7 +2274,7 @@
 		<object-name>rudder</object-name>
 		<object-name>rudder_1</object-name>
 		<object-name>rudder_0</object-name>
-		<property>controls/flight/rudder-pos</property>
+		<property>controls/flight/rudder</property>
 		<factor>35</factor>
 		<offset-deg>0</offset-deg>   
 		<axis>
@@ -2293,7 +2294,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>elevator_right</object-name>
-		<property>controls/flight/elevator-pos</property>
+		<property>controls/flight/elevator</property>
 		<factor>10</factor>
 		<offset-deg>0</offset-deg>   
 		<axis>
@@ -2309,7 +2310,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>elevator_left</object-name>
-		<property>controls/flight/elevator-pos</property>
+		<property>controls/flight/elevator</property>
 		<factor>-10</factor>
 		<offset-deg>0</offset-deg>
 		<axis>
@@ -2448,7 +2449,7 @@
 	<!-- ######## -->
 	 
 	<model>
-		<path>../Models/747-8vip/Effects/Contrail/contrail0.xml</path>
+		<path>Effects/Contrail/contrail0.xml</path>
 		<offsets>
 			<x-m> 31.3057</x-m>
 			<y-m>-21.3057</y-m>
@@ -2457,7 +2458,7 @@
 	</model>
 
 	<model>
-		<path>../Models/747-8vip/Effects/Contrail/contrail1.xml</path>
+		<path>Effects/Contrail/contrail1.xml</path>
 		<offsets>
 			<x-m> 22.6645</x-m>
 			<y-m> -12.1412</y-m>
@@ -2466,7 +2467,7 @@
 	</model>
 
 	<model>
-		<path>../Models/747-8vip/Effects/Contrail/contrail2.xml</path>
+		<path>Effects/Contrail/contrail2.xml</path>
 		<offsets>
 			<x-m> 22.6645</x-m>
 			<y-m> 12.1412</y-m>
@@ -2474,12 +2475,22 @@
 		</offsets>
 	</model>
 	<model>
-		<path>../Models/747-8vip/Effects/Contrail/contrail3.xml</path>
+		<path>Effects/Contrail/contrail3.xml</path>
 		<offsets>
 			<x-m> 31.3057</x-m>
 			<y-m> 21.3057</y-m>
 			<z-m> -1.36293</z-m>
 		</offsets>
 	</model>
+  
+<!-- forward top turret -->
+<model>
+	<path>Aircraft/JPack/Voodoomaster/Models/Turrets/Turret/turretForward.xml</path>
+	<offsets>
+		<x-m> -0.00000 </x-m>
+		<y-m>  0.00000 </y-m>
+		<z-m>  8.00000 </z-m>
+	</offsets>
+</model>
 
 </PropertyList>

@@ -99,6 +99,7 @@
 		<chase-distance-m>-100</chase-distance-m>
 
 		<sound>
+			<audible>true</audible>
 			<path>Aircraft/VIP/Sounds/Lineage1000/Lineage1000-sound.xml</path>
 		</sound>
 
