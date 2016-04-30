@@ -94,7 +94,7 @@
 			</dialogs>
 		</gui>
 
-		<fuel-fraction>0.8</fuel-fraction>	<!-- does nothing under JSB, here for a leter fuel system expansion -->
+		<fuel-fraction>0.8</fuel-fraction>	<!-- does nothing under JSB, here for a lster fuel system expansion -->
 
 		<chase-distance-m>-100</chase-distance-m>
 

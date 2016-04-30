@@ -1,0 +1,546 @@
+<?xml version="1.0"?>
+<!-- 
+
+-->
+<system name="Fuel">
+
+	<channel name="Fuel">
+
+		<!-- Grouping wing pumps -->
+		<switch name="fuel/pump-left-on">
+			<default value="0"/>
+			<test logic="AND" value="1">
+				/controls/fuel/tank[0]/pump-aft EQ 1
+				propulsion/tank[0]/contents-lbs GT 0   
+			</test>
+			<test logic="AND" value="1">
+				/controls/fuel/tank[0]/pump-fwd EQ 1   
+				propulsion/tank[0]/contents-lbs GT 0   
+			</test>
+		</switch>
+
+		<switch name="fuel/pump-right-on">
+			<default value="0"/>
+			<test logic="AND" value="1">
+				/controls/fuel/tank[1]/pump-aft EQ 1
+				propulsion/tank[1]/contents-lbs GT 0   
+			</test>
+			<test logic="AND" value="1">
+				/controls/fuel/tank[1]/pump-fwd EQ 1   
+				propulsion/tank[1]/contents-lbs GT 0   
+			</test>
+		</switch>
+
+		<switch name="fuel/pump-left-center-on">
+			<default value="0"/>
+			<test logic="AND" value="1">
+				/controls/fuel/tank[2]/pump-left EQ 1
+				propulsion/tank[2]/contents-lbs GT 0   
+			</test>
+		</switch>
+
+		<switch name="fuel/pump-right-center-on">
+			<default value="0"/>
+			<test logic="AND" value="1">
+				/controls/fuel/tank[2]/pump-right EQ 1
+				propulsion/tank[2]/contents-lbs GT 0   
+			</test>
+		</switch>
+
+		<switch name="fuel/pump-pats1-center-on">
+			<default value="0"/>
+			<test logic="AND" value="-5">
+				/controls/fuel/tank[5]/pump-pats EQ 1
+				propulsion/tank[5]/contents-lbs GT 0   
+				propulsion/tank[2]/contents-lbs LT 28600
+			</test>
+		</switch>
+
+		<switch name="fuel/pump-pats2-center-on">
+			<default value="0"/>
+			<test logic="AND" value="-5">
+				/controls/fuel/tank[6]/pump-pats EQ 1
+				propulsion/tank[6]/contents-lbs GT 0   
+				propulsion/tank[2]/contents-lbs LT 28600
+			</test>
+		</switch>
+
+		<switch name="fuel/pump-pats3-center-on">
+			<default value="0"/>
+			<test logic="AND" value="-5">
+				/controls/fuel/tank[7]/pump-pats EQ 1
+				propulsion/tank[7]/contents-lbs GT 0   
+				propulsion/tank[2]/contents-lbs LT 28600
+			</test>
+		</switch>
+
+		<switch name="fuel/pump-pats4-center-on">
+			<default value="0"/>
+			<test logic="AND" value="-5">
+				/controls/fuel/tank[8]/pump-pats EQ 1
+				propulsion/tank[8]/contents-lbs GT 0   
+				propulsion/tank[2]/contents-lbs LT 28600
+			</test>
+		</switch>
+
+		<switch name="fuel/pump-pats5-center-on">
+			<default value="0"/>
+			<test logic="AND" value="-5">
+				/controls/fuel/tank[9]/pump-pats EQ 1
+				propulsion/tank[9]/contents-lbs GT 0   
+				propulsion/tank[2]/contents-lbs LT 28600
+			</test>
+		</switch>
+
+		<switch name="fuel/pump-pats6-center-on">
+			<default value="0"/>
+			<test logic="AND" value="-5">
+				/controls/fuel/tank[10]/pump-pats EQ 1
+				propulsion/tank[10]/contents-lbs GT 0   
+				propulsion/tank[2]/contents-lbs LT 28600
+			</test>
+		</switch>
+
+		<switch name="fuel/pump-pats7-center-on">
+			<default value="0"/>
+			<test logic="AND" value="-5">
+				/controls/fuel/tank[11]/pump-pats EQ 1
+				propulsion/tank[11]/contents-lbs GT 0   
+				propulsion/tank[2]/contents-lbs LT 28600
+			</test>
+		</switch>
+
+		<!-- Pipe to left engine -->
+		<switch name="fuel/left-pipe-feed">
+			<default value="0"/>
+			<test logic="AND" value="3.5">
+				fuel/pump-left-on EQ 1               
+				propulsion/tank[0]/contents-lbs GT 0
+				propulsion/tank[3]/contents-lbs LT 0.25
+			</test>            
+			<test logic="AND" value="3.5">
+				/controls/fuel/tank[2]/pump-left EQ 1               
+				propulsion/tank[2]/contents-lbs GT 0
+				propulsion/tank[3]/contents-lbs LT 0.25
+			</test>
+          
+			<test logic="AND" value="3.5">
+				fuel/pump-right-on EQ 1               
+				propulsion/tank[1]/contents-lbs GT 0
+				propulsion/tank[3]/contents-lbs LT 0.25
+				/controls/fuel/crossfeed EQ 1
+			</test>
+			<test logic="AND" value="3.5">
+				/controls/fuel/tank[2]/pump-right EQ 1               
+				propulsion/tank[2]/contents-lbs GT 0
+				propulsion/tank[3]/contents-lbs LT 0.25
+				/controls/fuel/crossfeed EQ 1
+			</test>
+			<output>propulsion/tank[3]/external-flow-rate-pps</output>
+		</switch>
+
+		<!-- Pipe to right engine -->
+		<switch name="fuel/right-pipe-feed">
+			<default value="0"/>
+			<test logic="AND" value="3.5">
+				fuel/pump-left-on EQ 1               
+				propulsion/tank[0]/contents-lbs GT 0
+				propulsion/tank[4]/contents-lbs LT 0.25
+				/controls/fuel/crossfeed EQ 1
+			</test>            
+			<test logic="AND" value="3.5">
+				/controls/fuel/tank[2]/pump-left EQ 1               
+				propulsion/tank[2]/contents-lbs GT 0
+				propulsion/tank[4]/contents-lbs LT 0.25
+				/controls/fuel/crossfeed EQ 1
+			</test>
+			<test logic="AND" value="3.5">
+				fuel/pump-right-on EQ 1               
+				propulsion/tank[1]/contents-lbs GT 0
+				propulsion/tank[4]/contents-lbs LT 0.25
+			</test>
+			<test logic="AND" value="3.5">
+				/controls/fuel/tank[2]/pump-right EQ 1               
+				propulsion/tank[2]/contents-lbs GT 0
+				propulsion/tank[4]/contents-lbs LT 0.25
+			</test>
+			<output>propulsion/tank[4]/external-flow-rate-pps</output>
+		</switch>
+
+		<pure_gain name="fuel/left-pipe-feed-half">
+			<input>fuel/left-pipe-feed</input>
+			<gain>0.5</gain>
+		</pure_gain>
+
+		<pure_gain name="fuel/right-pipe-feed-half">
+			<input>fuel/right-pipe-feed</input>
+			<gain>0.5</gain>
+		</pure_gain>
+
+		<switch name="fuel/from-tank0-to-tank3">
+			<default value="0"/>
+			<test value="-fuel/left-pipe-feed">
+				fuel/pump-left-on EQ 1  
+				fuel/pump-left-center-on EQ 0
+				fuel/pump-right-center-on EQ 0
+				fuel/pump-right-on EQ 0
+				/controls/fuel/crossfeed EQ 0
+			</test>
+			<test value="-fuel/left-pipe-feed">
+				fuel/pump-left-on EQ 1  
+				fuel/pump-left-center-on EQ 0
+				fuel/pump-right-center-on EQ 0
+				fuel/pump-right-on EQ 0
+				/controls/fuel/crossfeed EQ 1
+			</test>
+			<test value="-fuel/left-pipe-feed">
+				fuel/pump-left-on EQ 1  
+				fuel/pump-left-center-on EQ 0
+				fuel/pump-right-center-on EQ 0
+				fuel/pump-right-on EQ 1
+				/controls/fuel/crossfeed EQ 0
+			</test>
+			<test value="-fuel/left-pipe-feed">
+				fuel/pump-left-on EQ 1  
+				fuel/pump-left-center-on EQ 0
+				fuel/pump-right-center-on EQ 1
+				fuel/pump-right-on EQ 0
+				/controls/fuel/crossfeed EQ 0
+			</test>
+			<test value="-fuel/left-pipe-feed">
+				fuel/pump-left-on EQ 1  
+				fuel/pump-left-center-on EQ 0
+				fuel/pump-right-center-on EQ 1
+				fuel/pump-right-on EQ 1
+				/controls/fuel/crossfeed EQ 0
+			</test>
+			<test value="-fuel/left-pipe-feed-half">
+				fuel/pump-left-on EQ 1  
+				fuel/pump-left-center-on EQ 0
+				fuel/pump-right-center-on EQ 0
+				fuel/pump-right-on EQ 1
+				/controls/fuel/crossfeed EQ 1
+			</test>
+		</switch>
+
+		<switch name="fuel/from-tank1-to-tank3">
+			<default value="0"/>
+			<test value="-fuel/left-pipe-feed">
+				fuel/pump-left-on EQ 0
+				fuel/pump-left-center-on EQ 0
+				fuel/pump-right-center-on EQ 0
+				fuel/pump-right-on EQ 1
+				/controls/fuel/crossfeed EQ 1
+			</test>
+			<test value="-fuel/left-pipe-feed-half">
+				fuel/pump-left-on EQ 1  
+				fuel/pump-left-center-on EQ 0
+				fuel/pump-right-center-on EQ 0
+				fuel/pump-right-on EQ 1
+				/controls/fuel/crossfeed EQ 1
+			</test>
+		</switch>
+
+		<switch name="fuel/from-tank2-to-tank3">
+			<default value="-fuel/left-pipe-feed"/>
+			<test value="0">
+				fuel/pump-left-on EQ 0
+				fuel/pump-left-center-on EQ 0
+				fuel/pump-right-center-on EQ 0
+				fuel/pump-right-on EQ 0
+				/controls/fuel/crossfeed EQ 0
+			</test>
+			<test value="0">
+				fuel/pump-left-on EQ 0
+				fuel/pump-left-center-on EQ 0
+				fuel/pump-right-center-on EQ 0
+				fuel/pump-right-on EQ 0
+				/controls/fuel/crossfeed EQ 1
+			</test>
+			<test value="0">
+				fuel/pump-left-on EQ 0
+				fuel/pump-left-center-on EQ 0
+				fuel/pump-right-center-on EQ 0
+				fuel/pump-right-on EQ 1
+				/controls/fuel/crossfeed EQ 0
+			</test>
+			<test value="0">
+				fuel/pump-left-on EQ 0
+				fuel/pump-left-center-on EQ 0
+				fuel/pump-right-center-on EQ 1
+				fuel/pump-right-on EQ 0
+				/controls/fuel/crossfeed EQ 0
+			</test>
+			<test value="0">
+				fuel/pump-left-on EQ 0
+				fuel/pump-left-center-on EQ 0
+				fuel/pump-right-center-on EQ 1
+				fuel/pump-right-on EQ 1
+				/controls/fuel/crossfeed EQ 0
+			</test>
+			<test value="0">
+				fuel/pump-left-on EQ 1
+				fuel/pump-left-center-on EQ 0
+				fuel/pump-right-center-on EQ 0
+				fuel/pump-right-on EQ 0
+				/controls/fuel/crossfeed EQ 0
+			</test>
+			<test value="0">
+				fuel/pump-left-on EQ 1
+				fuel/pump-left-center-on EQ 0
+				fuel/pump-right-center-on EQ 0
+				fuel/pump-right-on EQ 0
+				/controls/fuel/crossfeed EQ 1
+			</test>
+			<test value="0">
+				fuel/pump-left-on EQ 1
+				fuel/pump-left-center-on EQ 0
+				fuel/pump-right-center-on EQ 0
+				fuel/pump-right-on EQ 1
+				/controls/fuel/crossfeed EQ 0
+			</test>
+			<test value="0">
+				fuel/pump-left-on EQ 1
+				fuel/pump-left-center-on EQ 0
+				fuel/pump-right-center-on EQ 1
+				fuel/pump-right-on EQ 0
+				/controls/fuel/crossfeed EQ 0
+			</test>
+			<test value="0">
+				fuel/pump-left-on EQ 1
+				fuel/pump-left-center-on EQ 0
+				fuel/pump-right-center-on EQ 1
+				fuel/pump-right-on EQ 1
+				/controls/fuel/crossfeed EQ 0
+			</test>
+			<test value="0">
+				fuel/pump-left-on EQ 0
+				fuel/pump-left-center-on EQ 0
+				fuel/pump-right-center-on EQ 0
+				fuel/pump-right-on EQ 1
+				/controls/fuel/crossfeed EQ 1
+			</test>
+			<test value="0">
+				fuel/pump-left-on EQ 1
+				fuel/pump-left-center-on EQ 0
+				fuel/pump-right-center-on EQ 0
+				fuel/pump-right-on EQ 1
+				/controls/fuel/crossfeed EQ 1
+			</test>
+		</switch>
+
+		<switch name="fuel/from-tank0-to-tank4">
+			<default value="0"/>
+			<test value="-fuel/right-pipe-feed">
+				fuel/pump-left-on EQ 1
+				fuel/pump-left-center-on EQ 0
+				fuel/pump-right-center-on EQ 0
+				fuel/pump-right-on EQ 0
+				/controls/fuel/crossfeed EQ 1
+			</test>
+			<test value="-fuel/right-pipe-feed-half">
+				fuel/pump-left-on EQ 1  
+				fuel/pump-left-center-on EQ 0
+				fuel/pump-right-center-on EQ 0
+				fuel/pump-right-on EQ 1
+				/controls/fuel/crossfeed EQ 1
+			</test>
+		</switch>
+
+		<switch name="fuel/from-tank1-to-tank4">
+			<default value="0"/>
+			<test value="-fuel/right-pipe-feed">
+				fuel/pump-left-on EQ 0
+				fuel/pump-left-center-on EQ 0
+				fuel/pump-right-center-on EQ 0
+				fuel/pump-right-on EQ 1
+				/controls/fuel/crossfeed EQ 0
+			</test>
+			<test value="-fuel/right-pipe-feed">
+				fuel/pump-left-on EQ 1
+				fuel/pump-left-center-on EQ 0
+				fuel/pump-right-center-on EQ 0
+				fuel/pump-right-on EQ 1
+				/controls/fuel/crossfeed EQ 0
+			</test>
+			<test value="-fuel/right-pipe-feed">
+				fuel/pump-left-on EQ 0
+				fuel/pump-left-center-on EQ 0
+				fuel/pump-right-center-on EQ 0
+				fuel/pump-right-on EQ 1
+				/controls/fuel/crossfeed EQ 1
+			</test>
+			<test value="-fuel/right-pipe-feed">
+				fuel/pump-left-on EQ 0
+				fuel/pump-left-center-on EQ 1
+				fuel/pump-right-center-on EQ 0
+				fuel/pump-right-on EQ 1
+				/controls/fuel/crossfeed EQ 0
+			</test>
+			<test value="-fuel/right-pipe-feed">
+				fuel/pump-left-on EQ 1
+				fuel/pump-left-center-on EQ 1
+				fuel/pump-right-center-on EQ 0
+				fuel/pump-right-on EQ 1
+				/controls/fuel/crossfeed EQ 0
+			</test>
+			<test value="-fuel/right-pipe-feed-half">
+				fuel/pump-left-on EQ 1  
+				fuel/pump-left-center-on EQ 0
+				fuel/pump-right-center-on EQ 0
+				fuel/pump-right-on EQ 1
+				/controls/fuel/crossfeed EQ 1
+			</test>
+		</switch>
+
+		<switch name="fuel/from-tank2-to-tank4">
+			<default value="-fuel/right-pipe-feed"/>
+			<test value="0">
+				fuel/pump-left-on EQ 0
+				fuel/pump-left-center-on EQ 0
+				fuel/pump-right-center-on EQ 0
+				fuel/pump-right-on EQ 0
+				/controls/fuel/crossfeed EQ 0
+			</test>
+			<test value="0">
+				fuel/pump-left-on EQ 0
+				fuel/pump-left-center-on EQ 0
+				fuel/pump-right-center-on EQ 0
+				fuel/pump-right-on EQ 0
+				/controls/fuel/crossfeed EQ 1
+			</test>
+			<test value="0">
+				fuel/pump-left-on EQ 1
+				fuel/pump-left-center-on EQ 0
+				fuel/pump-right-center-on EQ 0
+				fuel/pump-right-on EQ 0
+				/controls/fuel/crossfeed EQ 0
+			</test>
+			<test value="0">
+				fuel/pump-left-on EQ 0
+				fuel/pump-left-center-on EQ 1
+				fuel/pump-right-center-on EQ 0
+				fuel/pump-right-on EQ 0
+				/controls/fuel/crossfeed EQ 0
+			</test>
+			<test value="0">
+				fuel/pump-left-on EQ 1
+				fuel/pump-left-center-on EQ 1
+				fuel/pump-right-center-on EQ 0
+				fuel/pump-right-on EQ 0
+				/controls/fuel/crossfeed EQ 0
+			</test>
+			<test value="0">
+				fuel/pump-left-on EQ 1
+				fuel/pump-left-center-on EQ 0
+				fuel/pump-right-center-on EQ 0
+				fuel/pump-right-on EQ 0
+				/controls/fuel/crossfeed EQ 1
+			</test>
+			<test value="0">
+				fuel/pump-left-on EQ 0
+				fuel/pump-left-center-on EQ 0
+				fuel/pump-right-center-on EQ 0
+				fuel/pump-right-on EQ 1
+				/controls/fuel/crossfeed EQ 0
+			</test>
+			<test value="0">
+				fuel/pump-left-on EQ 1
+				fuel/pump-left-center-on EQ 0
+				fuel/pump-right-center-on EQ 0
+				fuel/pump-right-on EQ 1
+				/controls/fuel/crossfeed EQ 0
+			</test>
+			<test value="0">
+				fuel/pump-left-on EQ 0
+				fuel/pump-left-center-on EQ 0
+				fuel/pump-right-center-on EQ 0
+				fuel/pump-right-on EQ 1
+				/controls/fuel/crossfeed EQ 1
+			</test>
+			<test value="0">
+				fuel/pump-left-on EQ 0
+				fuel/pump-left-center-on EQ 1
+				fuel/pump-right-center-on EQ 0
+				fuel/pump-right-on EQ 1
+				/controls/fuel/crossfeed EQ 0
+			</test>
+			<test value="0">
+				fuel/pump-left-on EQ 1
+				fuel/pump-left-center-on EQ 1
+				fuel/pump-right-center-on EQ 0
+				fuel/pump-right-on EQ 1
+				/controls/fuel/crossfeed EQ 0
+			</test>
+			<test value="0">
+				fuel/pump-left-on EQ 1
+				fuel/pump-left-center-on EQ 0
+				fuel/pump-right-center-on EQ 0
+				fuel/pump-right-on EQ 1
+				/controls/fuel/crossfeed EQ 1
+			</test>
+		</switch>
+
+		<summer name="fuel/tank0-flow-rate">
+			<input>fuel/from-tank0-to-tank3</input>
+			<input>fuel/from-tank0-to-tank4</input>
+			<output>propulsion/tank[5]/external-flow-rate-pps</output>
+			<output>propulsion/tank[6]/external-flow-rate-pps</output>
+			<output>propulsion/tank[7]/external-flow-rate-pps</output>
+			<output>propulsion/tank[8]/external-flow-rate-pps</output>
+			<output>propulsion/tank[9]/external-flow-rate-pps</output>
+			<output>propulsion/tank[10]/external-flow-rate-pps</output>
+			<output>propulsion/tank[11]/external-flow-rate-pps</output>
+			<output>propulsion/tank[0]/external-flow-rate-pps</output>
+		</summer>
+
+		<summer name="fuel/tank1-flow-rate">
+			<input>fuel/from-tank1-to-tank3</input>
+			<input>fuel/from-tank1-to-tank4</input>
+			<output>propulsion/tank[1]/external-flow-rate-pps</output>
+		</summer>
+
+		<summer name="fuel/tank2-flow-rate">
+			<input>fuel/from-tank2-to-tank3</input>
+			<input>fuel/from-tank2-to-tank4</input>
+			<output>propulsion/tank[2]/external-flow-rate-pps</output>
+		</summer>
+
+		<summer name="fuel/tank5-flow-rate">
+			<input>fuel/pump-pats1-center-on</input>
+			<output>propulsion/tank[5]/external-flow-rate-pps</output>
+		</summer>
+
+		<summer name="fuel/tank6-flow-rate">
+			<input>fuel/pump-pats2-center-on</input>
+			<output>propulsion/tank[6]/external-flow-rate-pps</output>
+		</summer>
+
+		<summer name="fuel/tank7-flow-rate">
+			<input>fuel/pump-pats3-center-on</input>
+			<output>propulsion/tank[7]/external-flow-rate-pps</output>
+		</summer>
+
+		<summer name="fuel/tank8-flow-rate">
+			<input>fuel/pump-pats4-center-on</input>
+			<output>propulsion/tank[8]/external-flow-rate-pps</output>
+		</summer>
+
+		<summer name="fuel/tank9-flow-rate">
+			<input>fuel/pump-pats5-center-on</input>
+			<output>propulsion/tank[9]/external-flow-rate-pps</output>
+		</summer>
+
+		<summer name="fuel/tank10-flow-rate">
+			<input>fuel/pump-pats6-center-on</input>
+			<output>propulsion/tank[10]/external-flow-rate-pps</output>
+		</summer>
+
+		<summer name="fuel/tank11-flow-rate">
+			<input>fuel/pump-pats7-center-on</input>
+			<output>propulsion/tank[11]/external-flow-rate-pps</output>
+		</summer>
+
+  </channel>
+
+</system>
