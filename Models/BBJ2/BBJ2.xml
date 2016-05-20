@@ -212,7 +212,7 @@
 	</model>
 
 	<model>
-		<path>Aircraft/Models/lights/BBj2/landinglight.xml</path>
+		<path>Aircraft/Models/lights/BBJ2/landinglight.xml</path>
 		<name>RightWingLandinglight</name>
 		<condition>
 			<equals>
