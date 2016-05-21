@@ -67,7 +67,7 @@
 		</systems>
 		
 		<instrumentation>
- 			<path>Systems/747-8vip-instrumentation.xml</path>		
+ 			<path>Systems/747-8vip/747-8vip-instrumentation.xml</path>		
 		</instrumentation>
 
 		<sound>
