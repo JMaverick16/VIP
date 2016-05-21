@@ -5,27 +5,27 @@
     <model>
 			<livery>
 				<name type="string">Pan Am</name>
-				<texture>/../Models/Liveries/748vip/pan-am.png</texture>
+				<texture>../Liveries/748vip/pan-am.png</texture>
 			</livery>
 			<nightlights>
 				<name type="string">Pan Am</name>
-				<texture>/../Models/Liveries/748vip/pan-am_lights.png</texture>
+				<texture>../Liveries/748vip/pan-am_lights.png</texture>
 			</nightlights>
 			<turbofans>
 				<name type="string">Pan Am</name>
-				<texture>/../Models/Liveries/748vip/pan-am_eng.png</texture>
+				<texture>../Liveries/748vip/pan-am_eng.png</texture>
 			</turbofans>
 			<wings>
 				<name type="string">Pan Am</name>
-				<texture>/../Models/Liveries/748vip/wings.png</texture>
+				<texture>../Liveries/748vip/wings.png</texture>
 			</wings>
 			<nightwings>
 				<name type="string">Pan Am</name>
-				<texture>/../Models/Liveries/748vip/wings-lts.png</texture>
+				<texture>../Liveries/748vip/wings-lts.png</texture>
 			</nightwings>
 			<nightengines>
 				<name type="string">Pan Am</name>
-				<texture>/../Models/Liveries/748vip/pan-am_eng-lts.png</texture>
+				<texture>../Liveries/748vip/pan-am_eng-lts.png</texture>
 			</nightengines>
     </model>
 </sim>
