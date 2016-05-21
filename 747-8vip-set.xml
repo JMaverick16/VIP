@@ -74,16 +74,16 @@
 
 		<sound>
 			<audible>true</audible>
-			<path>Aircraft/VIP/747-8vip-sound.xml</path>
+			<path>Aircraft/VIP/Sounds/747-8vip/747-8vip-sound.xml</path>
 		</sound>
 
 		<startup>
-			<splash-texture>Aircraft/VIP/747-8vip.png</splash-texture>
+			<splash-texture>Aircraft/VIP/Splashes/747-8vip.png</splash-texture>
 		</startup>
 
 		<!-- Default livery set up - http://wiki.flightgear.org/index.php/Livery_over_MP -->
 		<model>
-			<path>Aircraft/VIP/XMLs/747-8vip.xml</path>
+			<path>Aircraft/VIP/Models/747-8vip/747-8vip.xml</path>
 			<livery>
 				<file type="string">Default</file>
 			</livery>

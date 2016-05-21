@@ -5,7 +5,7 @@
     <model>
         <livery>
             <name type="string">Blank White Livery</name>
-            <texture>/../Models/blankLineage1000.png</texture>
+            <texture>../blankLineage1000.png</texture>
         </livery>
     </model>
 </sim>
