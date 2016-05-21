@@ -5,7 +5,7 @@
     <model>
         <livery>                     
             <name type="string">AeroMexico</name>
-            <texture>/Liveries-800/AMO.png</texture>            
+            <texture>../Liveries/BBJ2/AMO.png</texture>            
         </livery>        
     </model>
 </sim>

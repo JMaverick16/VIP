@@ -5,7 +5,7 @@
     <model>
         <livery>                     
             <name type="string">Garuda Indonesia</name>
-            <texture>/Liveries-800/GIA.png</texture>            
+            <texture>../Liveries/BBJ2/GIA.png</texture>            
         </livery>        
     </model>
 </sim>

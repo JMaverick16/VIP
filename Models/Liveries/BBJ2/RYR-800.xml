@@ -5,7 +5,7 @@
     <model>
         <livery>                     
             <name type="string">Ryanair</name>
-            <texture>Liveries-800/RYR-800.png</texture>            
+            <texture>../Liveries/BBJ2/RYR-800.png</texture>            
         </livery>        
     </model>
 </sim>

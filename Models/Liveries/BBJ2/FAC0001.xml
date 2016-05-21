@@ -4,8 +4,8 @@
 <sim>
     <model>
         <livery>                     
-            <name type="string">Skymark Airlines</name>
-            <texture>../Liveries/BBJ2/SKY-800.png</texture>            
+            <name type="string">FAC 001</name>
+            <texture>../Liveries/BBJ2/FAC0001.png</texture>            
         </livery>        
     </model>
 </sim>
