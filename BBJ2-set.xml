@@ -26,7 +26,7 @@
 
 		<!-- Splash screen while loading -->
 		<startup>
-			<splash-texture>Aircraft/VIP/Splashes/BBJ2.png</splash-texture>
+			<!--<splash-texture>Aircraft/VIP/Splashes/BBJ2.png</splash-texture>
 			<splash-texture>Aircraft/VIP/Splashes/BBJ2-1.png</splash-texture>
 			<splash-texture>Aircraft/VIP/Splashes/BBJ2-2.png</splash-texture>
 			<splash-texture>Aircraft/VIP/Splashes/BBJ2-3.png</splash-texture>
@@ -37,7 +37,8 @@
 			<splash-texture>Aircraft/VIP/Splashes/BBJ2-9.png</splash-texture>
 			<splash-texture>Aircraft/VIP/Splashes/BBJ2-10.png</splash-texture>
 			<splash-texture>Aircraft/VIP/Splashes/BBJ2-11.png</splash-texture>
-			<splash-texture>Aircraft/VIP/Splashes/BBJ2-12.png</splash-texture>
+			<splash-texture>Aircraft/VIP/Splashes/BBJ2-12.png</splash-texture>-->
+                        <splash-texture>Aircraft/VIP/Splashes/BBJ2-USATour-splash.png</splash-texture>
 		</startup>
 
 		<!-- Settings for model -->     
