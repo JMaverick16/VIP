@@ -1351,7 +1351,10 @@
 		<lights>
 			<file>Nasal/747-8vip/lights747-8vip.nas</file>
 		</lights>
-
+		
+		<damage>
+			<file>Nasal/747-8vip/damage.nas</file>
+		</damage>
 		<!-- dialogs>
 			<file>Nasal/747-8vip/dialogs747-8vip.nas</file>
 		</dialogs -->
